@@ -37,7 +37,7 @@
                     18 years or older<input type = "checkbox" name = "year" value = "18 years or older">
                 </div>
                 <div id = "RegisterButton">
-                    <router-link to = "/registration" tag = "button">Continue Registration</router-link>
+                    <router-link to = "/registration" tag = "button" @click.native = "checkCredentials" >Continue Registration</router-link>
                 </div>
             </form>
         </div>
@@ -47,15 +47,23 @@
 </template>
 
 <script>
+// import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  data: {
+      
+  },
+  methods: {
+    checkCredentials () {
+      alert('HEllo')
+    }
+  }
 }
 
 </script>
 
 <style>
-
 .form.h2{
     float: left;
     clear: right;
