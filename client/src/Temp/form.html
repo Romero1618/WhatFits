@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+    
+    <style>
+        body { padding-top: 40px; }
+    </style>
+</head>
+<body>
+    <div id="root" class="container">
+        
+        <h1 class="title is-1">User Management</h1>
+        
+        <tabs>
+            <tab name="Add User" :selected="true">
+                <h1>Here is the content for the Add User tab.</h1>
+
+
+                <form method="POSt" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
+
+                    <div class ="control">
+                        <label for="firstname" class="label">First Name:</label>
+                        <input type="text" id="firstname" name="firstname" class="input" v-model="form.firstname">
+                        <span class="help is-danger" v-if="form.errors.has('firstname')" v-text="form.errors.get('firstname')"></span>
+                    </div>
+
+                    <div class ="control">
+                        <label for="lastname" class="label">Last Name:</label>
+                        <input type="text" id="lastname" name="lastname" class="input" v-model="form.lastname">
+                        <span class="help is-danger"  v-if="form.errors.has('lastname')" v-text="form.errors.get('lastname')"></span>
+                    </div>
+
+                    <div class ="control">
+                        <label for="email" class="label">e-mail:</label>
+                        <input type="text" id="email" name="email" class="input" v-model="form.email">
+                        <span class="help is-danger"  v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
+                    </div>
+
+                    <div class ="control">
+                        <label for="password" class="label">password:</label>
+                        <input type="text" id="password" name="password" class="input" v-model="form.password">
+                        <span class="help is-danger"  v-if="form.errors.has('password')" v-text="form.errors.get('password')"></span>
+                    </div>
+
+                    <!-- CHANGE TO DROP DOWN BOX -->
+                    <div class ="control">
+                        <label for="gender" class="label">gender:</label>
+                        <input type="text" id="gender" name="gender" class="input" v-model="form.gender">
+                        <span class="help is-danger"  v-if="form.errors.has('gender')" v-text="form.errors.get('gender')"></span>
+                    </div>
+
+                    <div class ="control">
+                        <label for="address" class="label">address:</label>
+                        <input type="text" id="address" name="address" class="input" v-model="form.address">
+                        <span class="help is-danger"  v-if="form.errors.has('address')" v-text="form.errors.get('address')"></span>
+                    </div>
+
+                    <!-- Add User Button -->
+                    <div class="control">
+                        <button class="button is-primary" :disabled="form.errors.any()">Add User</button>
+                    </div>
+
+                    <!-- Clear Form Button -->
+                    <div class="control" v-if="false">
+                        //<button class="button is-primary" :disabled="form.errors.any()">Clear Form</button>
+                    //</div>
+                
+                </form>
+            </tab>
+
+            <tab name="Delete User">
+                <!--<h1>Here is the content for the Delete User tab.</h1>-->
+                <div class ="control">
+                    <label for="delete_user" class="label">Search for user:</label>
+                    <input type="text" id="delete_user" name="delete_user" class="input">
+                </div>
+            </tab>
+
+            <tab name="Edit User">
+                <h1>Here is the content for the Delete User tab.</h1>
+                <div class ="control">
+                    <label for="edit_user" class="label">Search for user:</label>
+                    <input type="text" id="edit_user" name="edit_user" class="input">
+                </div>
+            </tab>
+
+            <tab name="Disable User">
+                <h1>Here is the content for the Disable User tab.</h1>
+                <div class ="control">
+                        <label for="disable_user" class="label">Search for user:</label>
+                        <input type="text" id="disable_user" name="disable_user" class="input">
+                </div>
+            </tab>
+
+            <tab name="Eneable User">
+                <h1>Here is the content for the Delete User tab.</h1>
+                <div class ="control">
+                        <label for="enable_user" class="label">Search for user:</label>
+                        <input type="text" id="enable_user" name="enable_user" class="input">
+                </div>
+            </tab>
+
+        </tabs>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
+    <script src="form.js"></script>
+</body>
+</html>
