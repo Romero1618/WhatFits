@@ -13,3 +13,29 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+new Vue({
+  el: '#root'
+})
+
+Vue.component('Task', {
+  template: '<li><slot></slot></li>',
+});
+
+Vue.component('task-list', {
+  template: `
+  <div>
+      <task v-for="task in tasks">{{task.task}}</task>
+  </div>
+  `,
+
+  data(){
+      return{
+          tasks:[
+              {task: 'Go to store', complete: true},
+              {task: 'Go to email', complete: false},
+              {task: 'Go to home', complete: false}
+          ]
+      };
+  }
+});
